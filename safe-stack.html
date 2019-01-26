@@ -1,0 +1,434 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Web development with SAFE stack</title>
+    <meta name="description" content="Presentation about web devepment in F# with SAFE stack">
+    <meta name="author" content="Mikhail Smal">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="//code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="//code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/Beige.css" id="theme">
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/deedle.css" />
+    <link type="text/css" rel="stylesheet" href="css/custom.css" />
+    <script src="fsharp.formatting/styles/tips.js" type="text/javascript"></script>
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/fsreveal.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script language="javascript" type="text/javascript">
+        function init()
+        {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+        }
+        window.addEventListener("load", init, false);
+    </script>
+</head>
+<body>
+    <div class="reveal">
+        
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section >
+<h2>Web development with SAFE stack</h2>
+<p><img src="images/safe_logo.png" alt="SAFE" /></p>
+<p>Mikhail Smal @ F(by) 2019</p>
+<p><a href="https://twitter.com/mvsmal">@mvsmal</a></p>
+</section>
+<section >
+<p>My name is Mikhail
+and</p>
+<h1>I ❤️ F#</h1>
+</section>
+<section >
+<h2>What about you?</h2>
+<aside class="notes">
+    Who is working with F#?
+    Who is Full stack developer? Backend? Frontend?
+</aside>
+</section>
+<section >
+<section >
+<h2>Why F#</h2>
+<ul>
+    <li class="fragment">
+        Functional language
+        <ul>
+            <li>Immutability</li>
+            <li>Pattern matching</li>
+            <li>Static typing</li>
+            <li>Algebraic data-types</li>
+        </ul>
+    </li>
+    <li class="fragment">Domain Driven Design</li>
+</ul>
+<br/> <br/> <br/> <br/>
+</section>
+<section >
+<h3>Domain Modeling Made Functional</h3>
+<img src="images/dmmf_wlaschin.jpg" alt="DMMF Scott Wlaschin" width="400"/>
+<p><strong>Scott Wlaschin</strong></p>
+</section>
+<section >
+<h3>Why F# is the best enterprise language</h3>
+<p><a href="https://fsharpforfunandprofit.com/posts/fsharp-is-the-best-enterprise-language/">https://fsharpforfunandprofit.com/posts/fsharp-is-the-best-enterprise-language/</a></p>
+</section>
+</section>
+<section >
+<h2>Why F#</h2>
+<ul>
+    <li>
+        Functional language
+        <ul>
+            <li>Immutability</li>
+            <li>Pattern matching</li>
+            <li>Static typing</li>
+            <li>Algebraic data-types</li>
+        </ul>
+    </li>
+    <li>Domain Driven Design</li>
+    <li class="fragment">Cross-platform .NET Core</li>
+    <li class="fragment">Single language for Backend/Frontend</li>
+    <li class="fragment">Awesome community ️❤️</li>
+</ul>
+<aside class="notes">
+    FP devs not willing to consider F# (.NET from MS)
+</aside>
+</section>
+<section >
+<img src="images/safe_small.png" alt="SAFE" class="no-border" width="400" />
+<p>The SAFE stack is an <strong>open-source, free, flexible</strong> end-to-end, <strong>functional-first</strong> stack for <strong>cloud-ready web applications</strong> that emphasizes <strong>type-safe programming</strong>.</p>
+<table class="safe-stack">
+    <tr>
+        <td><img src="images/saturn_logo.png" alt="Saturn" width="150"/></td>
+        <td><img src="images/azure_logo.png" alt="Azure" width="150"/></td>
+        <td><img src="images/fable_logo.png" alt="Fable" width="150"/></td>
+        <td><img src="images/elmish_logo.png" alt="Elmish" width="150"/></td>
+    </tr>
+    <tr>
+        <td><h3><u>S</u>aturn</h3></td>
+        <td><h3><u>A</u>zure</h3></td>
+        <td><h3><u>F</u>able</h3></td>
+        <td><h3><u>E</u>lmish</h3></td>
+    </tr>
+</table>
+<aside class="notes">
+    The SAFE stack is an **open-source, free, flexible** end-to-end, **functional-first** stack for **cloud-ready web applications** that emphasizes **type-safe programming**.<br>
+    <br>
+    Is not smth special, not a custom implementation of some framework. It is not a framework. It is just a set of tools which simplifies end to end web development with the focus on type safety. With SAFE we just take an existing technology and use it from F#.
+    <br>
+    libuv - cross-platform async IO libraby
+</aside>
+</section>
+<section >
+<section >
+<div>
+    <h2 class="flex vertical-middle align-center">
+        <img src="images/saturn_logo.png" alt="Saturn" width="80" class="no-border margin-right-2rem" />
+        Saturn
+    </h2>
+    A modern web framework that focuses on developer productivity, performance, and maintainability
+    <div class="margin-top-2rem flex flex-horizontal">
+        <div class="flex1">
+            <h3>Rings</h3>
+            <ul>
+                <li>Kestrel and ASP.NET Core</li>
+                <li>Giraffe</li>
+            </ul>
+        </div>
+        <div class="flex1">
+                <h3>Moons</h3>
+                <ul>
+                    <li>Dapper</li>
+                    <li>Simple.Migrations</li>
+                </ul>
+        </div>
+    </div>
+</div>
+<div class="fragment fade-up darken-bg padding-md margin-top-2rem">
+    <h3>Alternatives</h3>
+    <div class="flex flex-horizontal">
+        <div class="flex1">
+            <ul>
+                <li>Giraffe</li>
+                <li>ASP.NET Core</li>
+            </ul>
+        </div>
+        <div class="flex1">
+            <ul>
+                <li>Suave</li>
+                <li>Freya</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<aside class="notes">
+    A modern web framework that focuses on developer productivity, performance, and maintainability
+    <p>
+        Simple and performant object mapper for .NET
+    </p>
+    <p>
+        Super simple framework for database versioning. Doesn't generate SQL, just provides a set of composable tools for integrating migrations into your application
+    </p>
+</aside>
+</section>
+<section >
+<h3>Saturn framework</h3>
+<p>Heavily inspired by <strong>Elixir's Phoenix</strong></p>
+<br>
+<p>Familiar abstractions:</p>
+<ul>
+<li><code>application { }</code></li>
+<li><code>router (*scope*) { }</code></li>
+<li><code>controller { }</code></li>
+</ul>
+</section>
+<section >
+<h3>Saturn template</h3>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="shell">dotnet new -i Saturn.Template
+dotnet new saturn -lang F#
+</code></pre></td></tr></table>
+<h3>Saturn cli-tool</h3>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="shell">dotnet saturn gen Book Books id:string title:string author:string
+dotnet saturn migration
+</code></pre></td></tr></table>
+<aside class="notes">
+    This will create Books folder with Models with these properties,
+    controller with CRUD, db access, migration, view
+</aside>
+</section>
+</section>
+<section >
+<section >
+<h2 class="flex vertical-middle align-center">
+    <img src="images/azure_logo.png" alt="Azure" width="80" class="no-border margin-right-2rem" />
+    Microsoft Azure
+</h2>
+<ul>
+<li>Top 3 Cloud hosting platforms</li>
+<li>Native .NET environment</li>
+</ul>
+<div class="fragment fade-up darken-bg padding-md margin-top-2rem">
+    <h3>Alternatives</h3>
+    <div class="flex flex-horizontal">
+        <div class="flex1">
+            <ul>
+                <li>Amazon Web Services<br/>(AWS)</li>
+                <li>Google Cloud Platform<br/>(GCP)</li>
+            </ul>
+        </div>
+        <div class="flex1">
+            <ul>
+                <li>Any other hosting</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</section>
+<section >
+<h2>SAFE in Docker</h2>
+<ul>
+<li><code>microsoft/dotnet:2.2-sdk</code></li>
+<li><code>microsoft/dotnet:2.2-aspnetcore-runtime</code></li>
+<li><code>microsoft/dotnet:2.2-runtime</code></li>
+<li><code>-</code></li>
+<li><code>microsoft/dotnet:2.2-sdk-alpine</code></li>
+<li><code>microsoft/dotnet:2.2-aspnetcore-runtime-alpine</code></li>
+<li><code>microsoft/dotnet:2.2-runtime-alpine</code></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2 class="flex vertical-middle align-center">
+    <img src="images/fable_logo.png" alt="Fable" width="80" class="no-border margin-right-2rem" />
+    Fable
+</h2>
+<p>The compiler that emits JavaScript you can be proud of!</p>
+<ul>
+<li>F# -&gt; JavaScript compiler</li>
+<li>JavaScript as runtime</li>
+<li>Simple interop with JavaScript</li>
+<li>ReactJS and React Native</li>
+<li>SSR w/o Node.js</li>
+</ul>
+<div class="fragment fade-up darken-bg padding-md margin-top-2rem">
+    <h3>Alternatives</h3>
+    <ul>
+        <li>WebSharper</li>
+    </ul>
+</div>
+</section>
+<section >
+<h2>Fable compiler</h2>
+<div class="fragment fade-down fsharp">F#</div>
+<div class="fragment fade-down fable">Fable</div>
+<div class="fragment fade-down babel">Babel</div>
+<div class="fragment fade-down javascript">ECMAScript 5<div>
+</section>
+</section>
+<section >
+<section >
+<h2 class="flex vertical-middle align-center">
+    <img src="images/elmish_logo.png" alt="Elmish" width="80" class="no-border margin-right-2rem" />
+    Elmish
+</h2>
+<ul>
+<li>Borrowed from Elm language</li>
+<li>MVU Architecture</li>
+<li>Hot module replacement</li>
+</ul>
+<aside class="notes">
+    HRM thanks to webpack
+</aside>
+</section>
+<section >
+<h2 class="flex vertical-middle align-center">
+    Model-View-Update
+</h2>
+<img src="images/mvu.png" alt="Model View Update" class="no-border" style="width: 90%" />
+</section>
+</section>
+<section >
+<section >
+<h2>Client-Server communtication</h2>
+</section>
+<section >
+<h2>Fable.Remoting</h2>
+<p>Type-safe communication layer for F# Apps</p>
+<ul>
+<li>RPC-style</li>
+<li>Adapters for all SAFE servers and more</li>
+</ul>
+</section>
+<section >
+<h2>Elmish.Bridge</h2>
+<p>A bridge between server and client using websockets</p>
+<ul>
+<li>Web sockets</li>
+<li>Bi-directional communication</li>
+</ul>
+</section>
+</section>
+<section >
+<h2>SAFE Pre-requisites</h2>
+<ul>
+<li>.NET Core SDK 2.x</li>
+<li>Node.js 8.x+</li>
+<li>Yarn/NPM</li>
+<li>FAKE 5 <em>as a dotnet global tool</em></li>
+<li>Mono <em>(for macOS/Linux only)</em></li>
+</ul>
+</section>
+<section >
+<h2>SAFE Template</h2>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="shell">dotnet new -i SAFE.Template
+dotnet new SAFE
+dotnet new SAFE --server giraffe --communication remoting
+dotnet new SAFE --layout fulma-landing
+dotnet new SAFE --deploy docker
+dotnet new SAFE --js-deps npm
+</code></pre></td></tr></table>
+<aside class="notes">
+    <b>Servers</b>: saturn(d), giraffe, suave<br>
+    <b>Layout</b>: Fulma-basic(d), admin, cover, hero, landing, login<br>
+    <b>Communication</b>: none(d) & remoting<br>
+    <b>Deploy</b>: none(d), docker, azure(Azure Resource manager template for AppService and AI), gcp (AppEngine)<br>
+    <b>JS Deps</b>: yarn(d) & npm (need npx)
+</aside>
+</section>
+<section >
+<h1>DEMO</h1>
+</section>
+<section >
+<p><img src="./images/percent.png" alt="percent" /></p>
+</section>
+<section >
+<h2>Wrapping up</h2>
+<ul>
+<li>Performance thanks to .NET Core</li>
+<li>Full-stack out-of-box</li>
+<li>Single type-safe functional language</li>
+</ul>
+</section>
+<section >
+<h1>QUESTIONS</h1>
+<h1>???</h1>
+</section>
+<section >
+<p><img src="/images/thanks.jpg" alt="" /></p>
+<h2>Mikhail Smal</h2>
+<p><a href="https://twitter.com/mvsmal">@mvsmal</a></p>
+</section>
+
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Add the nohighlight class and data-noescape attribute to code elements that have already been formatted by FSharp.Formatting
+        $('pre.highlighted code').addClass('nohighlight').attr('data-noescape', '');
+
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } }
+            ]
+        });
+
+    </script>
+</body>
+</html>
+
