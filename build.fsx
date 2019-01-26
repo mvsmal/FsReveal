@@ -9,10 +9,10 @@
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
-let gitOwner = "myGitUser"
+let gitOwner = "mvsmal"
 let gitHome = "https://github.com/" + gitOwner
 // The name of the project on GitHub
-let gitProjectName = "MyProject"
+let gitProjectName = "slides-safe_stack-fby2019"
 // The name of the GitHub repo subdirectory to publish slides to
 let gitSubDir = ""
 
@@ -60,6 +60,7 @@ let copyPics() =
 let generateFor (file:FileInfo) = 
     try
         copyPics()
+        copyStylesheet()
         let rec tryGenerate trials =
             try
                 FsReveal.GenerateFromFile(file.FullName, outDir, fsiEvaluator = fsiEvaluator)
@@ -71,7 +72,6 @@ let generateFor (file:FileInfo) =
 
         tryGenerate 3
 
-        copyStylesheet()
     with
     | :? FileNotFoundException as exn ->
         traceImportant <| sprintf "Could not copy file: %s" exn.FileName
