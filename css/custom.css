@@ -1,0 +1,117 @@
+html {
+  background-color: #f7f3de!important;
+}
+
+table.safe-stack, table.safe-stack tr, table.safe-stack td {
+  border: 0;
+}
+
+table.safe-stack img, img.no-border {
+  border: 0!important;
+  background-color: transparent!important;
+  box-shadow: none!important;
+}
+
+table.safe-stack td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+table.fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+table.fullscreen td {
+  height: 100%;
+  vertical-align: top;
+}
+
+.align-left {
+  text-align: left!important;
+}
+
+td.width-850 {
+  width: 900px!important;
+}
+
+.top-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.darken-bg {
+  background-color: rgba(0,0,0,.1);
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,.15);
+}
+
+.padding-md {
+  padding: 2rem!important;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-horizontal {
+  flex-direction: row;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.vertical-middle{
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.align-center {
+  justify-content: center;
+}
+
+.margin-right-2rem {
+  display: inline-block;
+  margin-right: 2rem!important;
+}
+
+.margin-top-2rem {
+  margin-top: 2rem!important;
+}
+
+.fsharp {
+  color: #fff;
+  background-color: #30B9DB;
+}
+
+.fable {
+  color: #fff;
+  background-color: #1292FF;
+}
+
+.ecmascript, .javascript {
+  color: #323330;
+  background-color: #F0DB4F;
+}
+
+.babel {
+  color: #323330;
+  background-color: #F9DC3E;
+}
+
+.fsharp, .fable, .babel, .ecmascript, .javascript {
+  margin: 0 auto!important;
+  margin-bottom: 1rem!important;
+  margin-top: 1rem!important;
+  padding: 2rem!important;
+  width: 30%;
+}
+
+.communication {
+  font-size: 70%!important;
+}
