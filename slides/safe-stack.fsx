@@ -2,7 +2,7 @@
 - title : Web development with SAFE stack 
 - description : Presentation about web devepment in F# with SAFE stack
 - author : Mikhail Smal
-- theme : Beige
+- theme : beige
 - transition : default
 
 ***
@@ -374,7 +374,7 @@ dotnet new SAFE --js-deps npm
 
 ***
 
-![](/images/thanks.jpg)
+![](./images/thanks.jpg)
 
 ## Mikhail Smal
 [@mvsmal](https://twitter.com/mvsmal)

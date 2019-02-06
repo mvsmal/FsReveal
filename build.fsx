@@ -12,7 +12,7 @@
 let gitOwner = "mvsmal"
 let gitHome = "https://github.com/" + gitOwner
 // The name of the project on GitHub
-let gitProjectName = "slides-safe_stack-fby2019"
+let gitProjectName = "presentations"
 // The name of the GitHub repo subdirectory to publish slides to
 let gitSubDir = ""
 
@@ -60,7 +60,6 @@ let copyPics() =
 let generateFor (file:FileInfo) = 
     try
         copyPics()
-        copyStylesheet()
         let rec tryGenerate trials =
             try
                 FsReveal.GenerateFromFile(file.FullName, outDir, fsiEvaluator = fsiEvaluator)
@@ -70,6 +69,7 @@ let generateFor (file:FileInfo) =
                 traceImportant <| sprintf "Could not generate slides for: %s" file.FullName
                 traceImportant exn.Message
 
+        copyStylesheet()
         tryGenerate 3
 
     with

@@ -6,4 +6,4 @@
 
 ***
 
-[Web development with SAFE Stack](safe-stack.html#/)
+[Web development with SAFE Stack @ F(by) 2019](safe-stack.html#/)
