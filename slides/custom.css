@@ -2,6 +2,10 @@ html {
   background-color: #f7f3de!important;
 }
 
+.slides {
+  width: 1344px!important;
+}
+
 table.safe-stack, table.safe-stack tr, table.safe-stack td {
   border: 0;
 }
